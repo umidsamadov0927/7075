@@ -72,7 +72,7 @@
               </div>
             </div>
           </div>
-          <div class="bg-[#5353531A] w-[480px] mt-[80px] shadow-2xl shadow-[#F1D8FD14] rounded-[10px] h-[600px]">
+          <div class="bg-[#5353531A] w-[480px] mt-[80px] shadow-[80px_80px_205px_rgba(255,255,255,0.1)] rounded-[10px] h-[600px]">
             <p class="text-center pb-[40px] font-[600] text-[24px] pt-[30px]">NIMANI MA'QUL KO'RASIZ?</p>
             <div class="flex ml-14 text-center gap-[60px]">
               <div>

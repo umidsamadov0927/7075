@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="bg-[#0E1014E5]">
+    <div class="bg-[#0E1014E5] ">
       <div class="w-[1300px] pb-[60px] pt-[50px] mx-auto">
         <div class="flex items-center justify-between">
           <img src="../../assets/newCard/LOGO.png" alt="logo">
