@@ -1,17 +1,15 @@
 <template>
   <section class="container mx-auto px-6 py-12">
-    <!-- Title -->
+
     <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
       About Us
     </h2>
 
-    <!-- Description -->
     <p class="text-gray-600 text-lg leading-relaxed mb-12 max-w-3xl mx-auto text-center">
       Biz jamoamiz bilan zamonaviy web va mobil yechimlarni yaratishga ixtisoslashganmiz.
       Maqsadimiz – foydalanuvchilar uchun qulay, tezkor va sifatli xizmatlarni taqdim etish.
     </p>
 
-    <!-- Team Section -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="bg-white shadow-md rounded-2xl p-6 text-center">
         <img

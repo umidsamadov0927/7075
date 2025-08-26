@@ -1,44 +1,65 @@
 <template>
   <section class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
-      Our Services
-    </h2>
-
-    <!-- Services grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white shadow-lg rounded-2xl p-6 text-center hover:shadow-xl transition">
-        <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 text-blue-600 flex items-center justify-center rounded-full text-2xl font-bold">
-          1
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Web Development</h3>
-        <p class="text-gray-600 mb-4">
-          Bizning mutaxassislar jamoasi zamonaviy va tezkor web saytlar ishlab chiqadi.
-        </p>
-        <router-link to="#" class="text-blue-600 hover:underline">Read more</router-link>
+    <div>
+      <div v-if="load" class="flex justify-center items-center mt-[200px]">
+        <div class="loader"></div>
       </div>
-
-      <div class="bg-white shadow-lg rounded-2xl p-6 text-center hover:shadow-xl transition">
-        <div class="w-16 h-16 mx-auto mb-4 bg-green-100 text-green-600 flex items-center justify-center rounded-full text-2xl font-bold">
-          2
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Mobile Apps</h3>
-        <p class="text-gray-600 mb-4">
-          iOS va Android uchun foydalanuvchi qulay ilovalarni ishlab chiqamiz.
-        </p>
-        <router-link to="#" class="text-green-600 hover:underline">Read more</router-link>
-      </div>
-
-      <div class="bg-white shadow-lg rounded-2xl p-6 text-center hover:shadow-xl transition">
-        <div class="w-16 h-16 mx-auto mb-4 bg-purple-100 text-purple-600 flex items-center justify-center rounded-full text-2xl font-bold">
-          3
-        </div>
-        <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
-        <p class="text-gray-600 mb-4">
-          Sayt va ilovalaringiz uchun chiroyli va qulay dizayn yaratamiz.
-        </p>
-        <router-link to="#" class="text-purple-600 hover:underline">Read more</router-link>
+      <div  v-else v-for="renderData in data" class="flex justify-center text-center items-center mb-6">
+        <router-link :to="`/services/${renderData.id}`" class="bg-blue-400 py-1 px-6 rounded-xl font-semibold cursor-pointer hover:bg-blue-700 transition">
+          <p class="text-white">{{renderData.title}}</p>
+          <p class="text-white">{{renderData.description}}</p>
+        </router-link>
       </div>
     </div>
   </section>
 </template>
+<script setup>
+import {onMounted, ref} from "vue";
+let data = ref([])
+let load = ref(true)
+
+async function render() {
+  try {
+    let res = await fetch("https://fakerestapi.azurewebsites.net/api/v1/Books",{
+      method: "GET"
+    })
+    let books = await res.json()
+    data.value = books;
+    console.log(books)
+    load.value = false;
+  }catch (error) {
+    console.log(error)
+  }
+}
+onMounted(()=>{
+  render()
+})
+</script>
+<style scoped>
+/* HTML: <div class="loader"></div> */
+.loader {
+
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  animation: l14 4s infinite;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  border: 8px solid;
+  border-radius: 50%;
+  border-color: red red #0000 #0000;
+  mix-blend-mode: darken;
+  animation: l14 1s infinite linear;
+}
+.loader::after {
+  border-color: #0000 #0000 blue blue;
+  animation-direction: reverse;
+}
+@keyframes l14{
+  100%{transform: rotate(1turn)}
+}
+</style>
 

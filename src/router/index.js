@@ -5,6 +5,7 @@ import {createRouter, createWebHistory} from "vue-router";
 import Common from "../layouts/Common.vue";
 import Contact from "../pages/Contact.vue";
 import notFound from "../pages/notFound.vue";
+import Data from "../pages/data.vue";
 
 let routes = [
     {
@@ -18,6 +19,14 @@ let routes = [
             {
                 path: '/contact',
                 component: Contact,
+            },
+            {
+                path: '/services',
+                component: Services,
+            },
+            {
+                path: 'services/:id',
+                component: Data
             }
         ],
 
@@ -25,10 +34,6 @@ let routes = [
     {
         path: '/about',
         component: About,
-    },
-    {
-        path: '/services',
-        component: Services,
     },
     {
         path: '/:pathMatch(.*)*',

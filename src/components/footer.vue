@@ -7,8 +7,8 @@
     <div class="container mx-auto py-6 px-10 flex justify-between items-center">
       <p>&copy; 2025 My Website. All rights reserved.</p>
       <div class="flex gap-4">
-        <a href="#" class="hover:text-white">Privacy</a>
-        <a href="#" class="hover:text-white">Terms</a>
+        <p class="text-white">Privacy</p>
+        <p class="text-white">Terms</p>
       </div>
     </div>
   </footer>

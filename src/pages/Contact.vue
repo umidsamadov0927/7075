@@ -6,43 +6,32 @@
     </p>
 
     <form class="bg-white shadow-lg rounded-2xl p-8 max-w-lg mx-auto space-y-6">
-      <!-- Name -->
+
       <div>
         <label class="block text-gray-700 font-medium mb-2">Name</label>
-        <input
-            type="text"
-            placeholder="Your name"
-            class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+        <input v-model="textOne" type="text" placeholder="Your name" class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
       </div>
 
-      <!-- Email -->
+
       <div>
         <label class="block text-gray-700 font-medium mb-2">Email</label>
-        <input
-            type="email"
-            placeholder="Your email"
-            class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+        <input type="email" placeholder="Your email" class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
       </div>
 
-      <!-- Message -->
       <div>
         <label class="block text-gray-700 font-medium mb-2">Message</label>
-        <textarea
-            rows="5"
-            placeholder="Your message..."
-            class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        ></textarea>
+        <textarea rows="5" placeholder="Your message..." class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
       </div>
 
-      <!-- Submit button -->
-      <button
-          type="submit"
-          class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
-      >
+      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
         Send Message
       </button>
     </form>
   </section>
 </template>
+<script setup>
+import {ref} from "vue";
+
+let textOne = ref("")
+console.log(textOne)
+</script>
