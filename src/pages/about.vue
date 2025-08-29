@@ -1,45 +1,89 @@
 <template>
-  <section class="container mx-auto px-6 py-12">
+  <!-- Swiper qismi -->
+  <swiper
+      :slides-per-view="3"
+      :space-between="30"
+      :autoplay="{ delay: 800, disableOnInteraction: false }"
+      :loop="true"
+      :free-mode="true"
+      :pagination="{ clickable: true }"
+      :modules="modules"
+      class="mySwiper"
+  >
+    <swiper-slide><div class="h-[400px] bg-blue-500"></div></swiper-slide>
+    <swiper-slide><div class="bg-yellow-400 h-[400px]"></div></swiper-slide>
+    <swiper-slide><div class="bg-red-500 h-[400px]"></div></swiper-slide>
+    <swiper-slide><div class="bg-pink-500 h-[400px]"></div></swiper-slide>
+    <swiper-slide><div class="bg-black h-[400px]"></div></swiper-slide>
+    <swiper-slide><div class="bg-orange-400 h-[400px]"></div></swiper-slide>
+    <swiper-slide><div class="bg-[#56445D] h-[400px]"></div></swiper-slide>
+    <swiper-slide><div class="bg-[#C3C3E6] h-[400px]"></div></swiper-slide>
+    <swiper-slide><div class="bg-[#87255B] h-[400px]"></div></swiper-slide>
+  </swiper>
 
-    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
-      About Us
-    </h2>
-
-    <p class="text-gray-600 text-lg leading-relaxed mb-12 max-w-3xl mx-auto text-center">
-      Biz jamoamiz bilan zamonaviy web va mobil yechimlarni yaratishga ixtisoslashganmiz.
-      Maqsadimiz – foydalanuvchilar uchun qulay, tezkor va sifatli xizmatlarni taqdim etish.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white shadow-md rounded-2xl p-6 text-center">
-        <img
-            src="https://via.placeholder.com/150"
-            alt="1"
-            class="w-24 h-24 rounded-full mx-auto mb-4"
-        />
-        <h3 class="text-xl font-semibold">Umid</h3>
-        <p class="text-gray-500">Frontend Developer</p>
-      </div>
-
-      <div class="bg-white shadow-md rounded-2xl p-6 text-center">
-        <img
-            src="https://via.placeholder.com/150"
-            alt="2"
-            class="w-24 h-24 rounded-full mx-auto mb-4"
-        />
-        <h3 class="text-xl font-semibold">Ali</h3>
-        <p class="text-gray-500">Backend Developer</p>
-      </div>
-
-      <div class="bg-white shadow-md rounded-2xl p-6 text-center">
-        <img
-            src="https://via.placeholder.com/150"
-            alt="3"
-            class="w-24 h-24 rounded-full mx-auto mb-4"
-        />
-        <h3 class="text-xl font-semibold">Laylo</h3>
-        <p class="text-gray-500">UI/UX Designer</p>
-      </div>
-    </div>
-  </section>
+  <!-- Chart.js qismi -->
+  <div class="max-w-[600px] mx-auto mt-10">
+    <canvas ref="chartCanvas"></canvas>
+  </div>
 </template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+// Swiper import
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import { Autoplay, FreeMode, Pagination } from "swiper/modules";
+
+// Chart.js import
+import { Chart, registerables } from "chart.js";
+
+// Swiper modullarini beramiz
+const modules = [FreeMode, Pagination, Autoplay];
+
+// Chart uchun ref
+const chartCanvas = ref(null);
+
+onMounted(() => {
+  // Chart.js modullarini ro‘yxatdan o‘tkazamiz
+  Chart.register(...registerables);
+
+  // Chart ma’lumotlari
+  const data = {
+    labels: ["January", "February", "March", "April"],
+    datasets: [
+      {
+        type: "bar",
+        label: "Bar Dataset",
+        data: [10, 20, 30, 40],
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+      },
+      {
+        type: "line",
+        label: "Line Dataset",
+        data: [50, 50, 50, 50],
+        fill: false,
+        borderColor: "rgb(54, 162, 235)",
+      },
+    ],
+  };
+
+  // Config
+  const config = {
+    type: "scatter", // bazaviy chart turi
+    data: data,
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true },
+      },
+    },
+  };
+
+  // Chart yaratish
+  new Chart(chartCanvas.value, config);
+});
+</script>
