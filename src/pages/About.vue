@@ -1,5 +1,5 @@
 <template>
-  <!-- Swiper qismi -->
+
   <swiper
       :slides-per-view="3"
       :space-between="30"
@@ -21,7 +21,6 @@
     <swiper-slide><div class="bg-[#87255B] h-[400px]"></div></swiper-slide>
   </swiper>
 
-  <!-- Chart.js qismi -->
   <div class="max-w-[600px] mx-auto mt-10">
     <canvas ref="chartCanvas"></canvas>
   </div>
@@ -30,50 +29,46 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-// Swiper import
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 
-// Chart.js import
+
 import { Chart, registerables } from "chart.js";
 
-// Swiper modullarini beramiz
 const modules = [FreeMode, Pagination, Autoplay];
 
-// Chart uchun ref
+
 const chartCanvas = ref(null);
 
 onMounted(() => {
-  // Chart.js modullarini ro‘yxatdan o‘tkazamiz
+
   Chart.register(...registerables);
 
-  // Chart ma’lumotlari
   const data = {
     labels: ["January", "February", "March", "April"],
     datasets: [
       {
         type: "bar",
         label: "Bar Dataset",
-        data: [10, 20, 30, 40],
+        data: [38, 20, 30, 40],
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.2)",
       },
       {
         type: "line",
         label: "Line Dataset",
-        data: [50, 50, 50, 50],
+        data: [5, 35, 10, 50],
         fill: false,
         borderColor: "rgb(54, 162, 235)",
       },
     ],
   };
 
-  // Config
   const config = {
-    type: "scatter", // bazaviy chart turi
+    type: "scatter",
     data: data,
     options: {
       responsive: true,
@@ -83,7 +78,6 @@ onMounted(() => {
     },
   };
 
-  // Chart yaratish
   new Chart(chartCanvas.value, config);
 });
 </script>

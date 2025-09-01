@@ -14,26 +14,26 @@
   </section>
 </template>
 <script setup>
-import {onMounted, ref} from "vue";
-let data = ref([])
-let load = ref(true)
-
-async function render() {
-  try {
-    let res = await fetch("https://fakerestapi.azurewebsites.net/api/v1/Books",{
-      method: "GET"
-    })
-    let books = await res.json()
-    data.value = books;
-    console.log(books)
-    load.value = false;
-  }catch (error) {
-    console.log(error)
-  }
-}
-onMounted(()=>{
-  render()
-})
+// import {onMounted, ref} from "vue";
+// let data = ref([])
+// let load = ref(true)
+//
+// async function render() {
+//   try {
+//     let res = await fetch("https://fakerestapi.azurewebsites.net/api/v1/Books",{
+//       method: "GET"
+//     })
+//     let books = await res.json()
+//     data.value = books;
+//     console.log(books)
+//     load.value = false;
+//   }catch (error) {
+//     console.log(error)
+//   }
+// }
+// onMounted(()=>{
+//   render()
+// })
 </script>
 <style scoped>
 /* HTML: <div class="loader"></div> */

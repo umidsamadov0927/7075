@@ -10,6 +10,7 @@
         <router-link to="./about" class="hover:text-gray-300">About</router-link>
         <router-link to="./services" class="hover:text-gray-300">Services</router-link>
         <router-link to="./contact" class="hover:text-gray-300">Contact</router-link>
+        <router-link to="./api" class="hover:text-gray-300">Api</router-link>
       </nav>
     </div>
   </header>

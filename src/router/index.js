@@ -1,11 +1,12 @@
 import Home from "../pages/Home.vue";
-import About from "../pages/about.vue";
+import About from "../pages/About.vue";
 import Services from "../pages/Services.vue";
 import {createRouter, createWebHistory} from "vue-router";
 import Common from "../layouts/Common.vue";
 import Contact from "../pages/Contact.vue";
-import notFound from "../pages/notFound.vue";
-import Data from "../pages/data.vue";
+import NotFound from "../pages/NotFound.vue";
+import Data from "../pages/Data.vue";
+import Api from "../pages/Api.vue";
 
 let routes = [
     {
@@ -27,7 +28,7 @@ let routes = [
             {
                 path: 'services/:id',
                 component: Data
-            }
+            },
         ],
 
     },
@@ -37,7 +38,11 @@ let routes = [
     },
     {
         path: '/:pathMatch(.*)*',
-        component: notFound,
+        component: NotFound,
+    },
+    {
+        path: '/api',
+        component: Api,
     }
 
 ]
