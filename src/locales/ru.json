@@ -1,0 +1,22 @@
+{
+  "header_text_one":"Главная",
+  "header_text_two": "О нас",
+  "header_text_three": "Услуги",
+  "header_text_four": "Контакты",
+  "header_text_five": "Мой сайт",
+
+  "main_text_one": "Добро пожаловать на мой сайт",
+  "main_text_two": "На этом сайте вы найдете наши услуги, новости и способы связи.",
+  "main_text_three": "Начать",
+  "main_text_four": "Первая услуга",
+  "main_text_five": "Вторая услуга",
+  "main_text_six": "Третья услуга",
+  "main_text_seven": "Краткая информация о нашей первой услуге.",
+  "main_text_eight": "Читать далее",
+
+  "footer_text_one": "© 2025 Мой сайт. Все права защищены.",
+  "footer_text_two": "Конфиденциальность",
+  "footer_text_three": "Условия"
+
+
+}

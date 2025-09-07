@@ -1,0 +1,22 @@
+{
+  "header_text_one":"Home",
+  "header_text_two": "About",
+  "header_text_three": "Services",
+  "header_text_four": "Contact",
+  "header_text_five": "My Website",
+
+  "main_text_one": "Welcome to my website",
+  "main_text_two": "On this site, you can find our services, news, and contact options.",
+  "main_text_three": "Start",
+  "main_text_four": "Service One",
+  "main_text_five": "Service Two",
+  "main_text_six": "Service Three",
+  "main_text_seven": "Brief information about our first service.",
+  "main_text_eight": "Read more",
+
+  "footer_text_one": "© 2025 My Website. All rights reserved.",
+  "footer_text_two": "Privacy",
+  "footer_text_three": "Terms"
+
+
+}
