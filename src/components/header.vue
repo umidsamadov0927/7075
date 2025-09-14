@@ -7,10 +7,11 @@
         <router-link to="./about" class="hover:text-gray-300">{{ $t("header_text_two") }}</router-link>
         <router-link to="./services" class="hover:text-gray-300">{{ $t("header_text_three") }}</router-link>
         <router-link to="./contact" class="hover:text-gray-300">{{ $t("header_text_four") }}</router-link>
-        <router-link to="./api" class="hover:text-gray-300">Api</router-link>
-        <select class="text-black outline-none" v-model="changeLanguageValue" @change="languageValueChange">
+        <router-link to="./api" class="hover:text-gray-300 ">Api</router-link>
+        <select class="text-black outline-none rounded-[5px]" v-model="changeLanguageValue" @change="languageValueChange">
           <option v-for="language in languageValue" :value="language.value"> {{language.label}} </option>
         </select>
+        <button @click="logoutStore.logout()" class="p-1 px-2 bg-red-500 rounded-[5px] text-white">Log out</button>
       </nav>
     </div>
   </header>
@@ -18,6 +19,9 @@
 <script setup>
 import {ref} from "vue";
 import {useI18n} from "vue-i18n";
+
+import {useLogin} from "../store/login.js";
+let logoutStore = useLogin();
 
 let {locale} = useI18n();
 let languageValue = [
