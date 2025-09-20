@@ -5,10 +5,15 @@ const changeApi = axios.create({
 })
 
 changeApi.interceptors.request.use(config => {
-    const loginStore = useLogin();
-    if (loginStore.token){
-        config.headers.Authorization = `Bearer ${loginStore.token}`;
+    try {
+        const loginStore = useLogin();
+        if (loginStore.token){
+            config.headers.Authorization = `Bearer ${loginStore.token}`;
+        }
+        return config;
+    }catch(error) {
+        console.log(error)
     }
-    return config;
+
 })
 export default changeApi
